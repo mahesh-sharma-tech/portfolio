@@ -132,7 +132,7 @@
                 <p class="text-xl md:text-2xl mb-8 opacity-90">Technology Consultant | Unity3D Expert | AI/ML Enthusiast</p>
                 <div class="flex flex-wrap justify-center gap-4 mb-8">
                     <a href="#contact" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Get In Touch</a>
-                    <a href="#" id="download-cv-btn" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 flex items-center gap-2">
+                    <a href="Mahesh_Sharma_CV.pdf" download class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         Download CV
                     </a>
@@ -663,51 +663,7 @@
             });
         });
 
-        // Download CV functionality
-        const downloadCvBtn = document.getElementById('download-cv-btn');
-        downloadCvBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Show instructions modal
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
-            modal.innerHTML = `
-                <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-                    <div class="text-center">
-                        <svg class="w-16 h-16 mx-auto mb-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Download CV</h3>
-                        <p class="text-gray-600 mb-6">To download my CV, please place your PDF file named <strong class="text-purple-600">Mahesh_Sharma_CV.pdf</strong> in the same directory as this HTML file.</p>
-                        <div class="bg-purple-50 border-2 border-purple-200 rounded-lg p-4 mb-6 text-left">
-                            <p class="text-sm text-gray-700 mb-2"><strong>Instructions:</strong></p>
-                            <ol class="text-sm text-gray-600 list-decimal list-inside space-y-1">
-                                <li>Save your CV as <code class="bg-purple-100 px-2 py-1 rounded">Mahesh_Sharma_CV.pdf</code></li>
-                                <li>Place it in the same folder as this website</li>
-                                <li>Click the download button again</li>
-                            </ol>
-                        </div>
-                        <div class="flex gap-3">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition duration-300">
-                                Close
-                            </button>
-                            <a href="Mahesh_Sharma_CV.pdf" download class="flex-1 bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300 text-center">
-                                Try Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            
-            // Close modal when clicking outside
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            });
-        });
-
+      
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
