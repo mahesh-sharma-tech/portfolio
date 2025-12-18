@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahesh Sharma - Chief Technology Officer | Full-Stack Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .skill-tag {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold gradient-text">Mahesh Sharma</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#experience" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Experience</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">About</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Experience</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Projects</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Skills</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg pt-24 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center text-white">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Mahesh Sharma</h1>
+                <p class="text-2xl md:text-3xl mb-4 font-light">Chief Technology Officer | Full-Stack Architect</p>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">Technology Consultant | Unity3D Expert | AI/ML Enthusiast</p>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <a href="#contact" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Get In Touch</a>
+                    <a href="#" id="download-cv-btn" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Download CV
+                    </a>
+                    <a href="#projects" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300">View Projects</a>
+                </div>
+                <div class="flex justify-center space-x-6 text-white">
+                    <a href="https://www.linkedin.com/in/mahesh-sharma-570901162/" target="_blank" class="hover:scale-110 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:maheshsharma184@gmail.com" class="hover:scale-110 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number">10+</div>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+                <div>
+                    <div class="stat-number">50K+</div>
+                    <p class="text-gray-600 font-medium">Active Users Served</p>
+                </div>
+                <div>
+                    <div class="stat-number">20+</div>
+                    <p class="text-gray-600 font-medium">Projects Delivered</p>
+                </div>
+                <div>
+                    <div class="stat-number">99.9%</div>
+                    <p class="text-gray-600 font-medium">Uptime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Results-driven technology leader with <strong>10 years of progressive experience</strong> from Unity Developer to Chief Technology Officer. I have a proven track record of architecting and scaling AI-powered EdTech platforms serving <strong>50,000+ active users</strong> with 99.9% uptime.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Expert in full-stack development, cloud architecture, and team leadership with deep specialization in Unity3D, VR/AR, and interactive learning systems. I've successfully led technology transformations, built high-performing engineering teams, and delivered innovative solutions that transform complex requirements into seamless user experiences.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Currently serving as CTO at STEPapp, I lead all technology strategy, product architecture, and engineering operations. I'm also open to consulting engagements, fractional CTO opportunities, and strategic advisory roles.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium">Available for Full-Time Roles</span>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium">Open to Consulting</span>
+                        <span class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium">Fractional CTO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Experience</h2>
+            
+            <!-- Timeline -->
+            <div class="space-y-12">
+                <!-- CTO -->
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Chief Technology Officer</h3>
+                            <p class="text-purple-600 font-semibold text-lg">STEPapp</p>
+                        </div>
+                        <span class="text-gray-600 font-medium mt-2 md:mt-0">Mar 2022 – Present</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Leading technology strategy and product development for high-growth EdTech SaaS platform serving 50,000+ learners globally.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Scaled platform to 50,000+ users with 99.9% uptime</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Reduced infrastructure costs by 40%</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Improved engagement by 35% via AI personalization</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Built AI-powered learning platform with adaptive content</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Director of Engineering -->
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Director of Engineering</h3>
+                            <p class="text-purple-600 font-semibold text-lg">STEPapp</p>
+                        </div>
+                        <span class="text-gray-600 font-medium mt-2 md:mt-0">Jan 2020 – Mar 2022</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Led technology transformation, managed full-stack teams, and built foundational infrastructure.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Delivered 5+ production EdTech platforms</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Scaled team from 5 to 15+ engineers</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Reduced time-to-market by 40%</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-700">Scaled to 10,000+ concurrent users</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Head of Unity3D -->
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Head of Unity3D & Game Development</h3>
+                            <p class="text-purple-600 font-semibold text-lg">STEPapp</p>
+                        </div>
+                        <span class="text-gray-600 font-medium mt-2 md:mt-0">Sep 2018 – Jan 2020</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Led game development team creating gamified learning experiences driving 40% engagement increase.</p>
+                </div>
+
+                <!-- Consulting Experience -->
+                <div class="bg-purple-50 rounded-2xl p-8 border-2 border-purple-200">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-6">Consulting & Freelancing</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900">Fractional CTO</h4>
+                                    <p class="text-purple-700 font-semibold">BoredLeaders Pvt. Ltd.</p>
+                                </div>
+                                <span class="text-gray-600 font-medium">Jan 2022 – Apr 2023</span>
+                            </div>
+                            <p class="text-gray-700">Led multiplayer game development from concept to launch with thousands of concurrent players.</p>
+                        </div>
+                        <div>
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900">Consulting CTO</h4>
+                                    <p class="text-purple-700 font-semibold">KITMEK Technologies Pvt Ltd.</p>
+                                </div>
+                                <span class="text-gray-600 font-medium">Oct 2021 – Feb 2022</span>
+                            </div>
+                            <p class="text-gray-700">Strategic technical leadership for kids' metaverse learning platform.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Roles -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-hover bg-gray-50 rounded-xl p-6 shadow-lg">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Senior Unity Developer</h4>
+                        <p class="text-purple-600 font-semibold mb-2">Quytech</p>
+                        <p class="text-gray-600 text-sm mb-3">Sep 2017 – Sep 2018</p>
+                        <p class="text-gray-700 text-sm">VR experiences and multiplayer gaming for Fortune 500 clients. 50,000+ users, 4.7+ rating.</p>
+                    </div>
+                    <div class="card-hover bg-gray-50 rounded-xl p-6 shadow-lg">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Senior Unity Developer (AR/VR)</h4>
+                        <p class="text-purple-600 font-semibold mb-2">Veative Labs</p>
+                        <p class="text-gray-600 text-sm mb-3">Jul 2015 – Sep 2017</p>
+                        <p class="text-gray-700 text-sm">VR educational simulations serving 100,000+ students. 45% improvement in learning retention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- STEPapp -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">STEPapp Learning Platform</h3>
+                        <p class="text-purple-100">AI-Powered EdTech SaaS</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Complete AI-powered learning platform with personalized paths, gamification, and AR modules serving 50,000+ active users.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">React.js</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">AWS</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">AI/ML</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=ESVBAewB_OE" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+                            Watch Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Multiplayer Teen Patti -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Multiplayer Card Game</h3>
+                        <p class="text-purple-100">Real-time Multiplayer Gaming</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Real-time multiplayer Teen Patti game with 50,000+ active users and 4.7+ app store rating.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Multiplayer</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">IAP</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=aQyH7CQPVcA" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+                            Watch Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BoredLeaders -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Mahabharata Multiplayer Game</h3>
+                        <p class="text-purple-100">Lightweight Multiplayer Game</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Engaging multiplayer game with real-time synchronization supporting thousands of concurrent players.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Real-time</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=yX92sEeh53k" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+                            Watch Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KITMEK -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Kids' Metaverse Platform</h3>
+                        <p class="text-purple-100">Educational Metaverse</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Interactive metaverse learning platform for children with gamification and engaging content.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Metaverse</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=7zWjZlnWNT4" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+                            Watch Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VR Educational -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">VR Educational Simulations</h3>
+                        <p class="text-purple-100">Immersive Learning Experience</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">15+ VR modules serving 100,000+ students with 45% improvement in learning retention.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">VR</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Oculus</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">HTC Vive</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=iaRME8u-itY" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+                            Watch Demo
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- VR Industrial -->
+                <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="gradient-bg p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">VR Industrial Training</h3>
+                        <p class="text-purple-100">Enterprise VR Solutions</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">VR walkthrough modules for Fortune 500 companies improving training efficiency and safety.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Unity3D</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">VR</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Enterprise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Leadership -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Leadership</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Technology Strategy</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Team Building</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Product Architecture</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Agile/Scrum</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Stakeholder Management</span>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Frontend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">React.js</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Angular</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Next.js</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Vue.js</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Tailwind CSS</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">TypeScript</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Node.js</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Express.js</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Python</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Django</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">REST APIs</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">GraphQL</span>
+                    </div>
+                </div>
+
+                <!-- Mobile -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Mobile</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">React Native</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">iOS (Swift)</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Android (Kotlin)</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Firebase</span>
+                    </div>
+                </div>
+
+                <!-- Game/3D -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Game & 3D</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Unity3D</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">C#</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">VR (Oculus)</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">AR (ARKit/ARCore)</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Multiplayer</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Cloud & DevOps</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">AWS</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Google Cloud</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Docker</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Kubernetes</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">CI/CD</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Terraform</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">MongoDB</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">PostgreSQL</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">MySQL</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Redis</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Elasticsearch</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">DynamoDB</span>
+                    </div>
+                </div>
+
+                <!-- AI/ML -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">AI/ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">TensorFlow</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">PyTorch</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Scikit-learn</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Data Science</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">ML Integration</span>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Architecture</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Microservices</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Serverless</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">Cloud-Native</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">System Design</span>
+                        <span class="skill-tag bg-white border-2 border-purple-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium">API Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 gradient-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Let's Work Together</h2>
+            <p class="text-xl text-white mb-12 opacity-90">
+                I'm currently available for full-time CTO roles, consulting engagements, and freelance projects.
+                <br>Let's discuss how I can help transform your technology vision into reality.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white">
+                    <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    <h3 class="text-lg font-bold mb-2">Email</h3>
+                    <a href="mailto:maheshsharma184@gmail.com" class="hover:underline">maheshsharma184@gmail.com</a>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white">
+                    <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    <h3 class="text-lg font-bold mb-2">Phone</h3>
+                    <a href="tel:+917838053261" class="hover:underline">+91 7838053261</a>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 text-white">
+                    <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <h3 class="text-lg font-bold mb-2">LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/mahesh-sharma-570901162/" target="_blank" class="hover:underline">Connect with me</a>
+                </div>
+            </div>
+
+            <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-8 text-white">
+                <h3 class="text-2xl font-bold mb-4">Available For</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-left">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <div>
+                            <h4 class="font-bold">Full-Time Roles</h4>
+                            <p class="text-sm opacity-90">CTO, VP Engineering, Director positions</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <div>
+                            <h4 class="font-bold">Fractional CTO</h4>
+                            <p class="text-sm opacity-90">Part-time strategic technology leadership</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <div>
+                            <h4 class="font-bold">Technology Consulting</h4>
+                            <p class="text-sm opacity-90">Architecture, AI/ML integration, system design</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <div>
+                            <h4 class="font-bold">Freelance Projects</h4>
+                            <p class="text-sm opacity-90">Web apps, mobile apps, Unity3D, VR/AR</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">&copy; 2024 Mahesh Sharma. All rights reserved.</p>
+            <p class="text-gray-500 text-sm mt-2">Built with modern web technologies</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Download CV functionality
+        const downloadCvBtn = document.getElementById('download-cv-btn');
+        downloadCvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Show instructions modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Download CV</h3>
+                        <p class="text-gray-600 mb-6">To download my CV, please place your PDF file named <strong class="text-purple-600">Mahesh_Sharma_CV.pdf</strong> in the same directory as this HTML file.</p>
+                        <div class="bg-purple-50 border-2 border-purple-200 rounded-lg p-4 mb-6 text-left">
+                            <p class="text-sm text-gray-700 mb-2"><strong>Instructions:</strong></p>
+                            <ol class="text-sm text-gray-600 list-decimal list-inside space-y-1">
+                                <li>Save your CV as <code class="bg-purple-100 px-2 py-1 rounded">Mahesh_Sharma_CV.pdf</code></li>
+                                <li>Place it in the same folder as this website</li>
+                                <li>Click the download button again</li>
+                            </ol>
+                        </div>
+                        <div class="flex gap-3">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition duration-300">
+                                Close
+                            </button>
+                            <a href="Mahesh_Sharma_CV.pdf" download class="flex-1 bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300 text-center">
+                                Try Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-purple-600');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-purple-600');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
