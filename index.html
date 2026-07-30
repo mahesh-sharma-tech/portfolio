@@ -1,331 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahesh Sharma - Engineering Leader & Technical Consultant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .gradient-blue { background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%); }
-        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahesh Sharma — Engineering Manager / Technical Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1826;
+    --bg-panel:#132234;
+    --bg-panel-alt:#17273B;
+    --line:#28405C;
+    --line-soft:#1D3049;
+    --text:#E7EEF5;
+    --text-muted:#8CA0B8;
+    --text-dim:#5E7086;
+    --amber:#F2A93B;
+    --cyan:#4FD1C5;
+    --cyan-dim:rgba(79,209,197,0.14);
+    --amber-dim:rgba(242,169,59,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+  }
+  ::selection{ background:var(--amber); color:#0E1826; }
+  a{ color:inherit; }
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .display{ font-family:'Space Grotesk', sans-serif; }
+
+  /* ---------- Layout shell ---------- */
+  .sheet{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+  .corner-marks{
+    position:relative;
+  }
+  .corner-marks::before,
+  .corner-marks::after{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border:1.5px solid var(--text-dim);
+  }
+  .corner-marks::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .corner-marks::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  section{
+    position:relative;
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .sheet-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:var(--cyan);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .sheet-label::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--cyan);
+  }
+  .sheet-label .rev{ color:var(--text-dim); margin-left:auto; }
+
+  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.01em; }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    background:rgba(14,24,38,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1180px; margin:0 auto; padding:0 40px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-brand{ font-family:'JetBrains Mono', monospace; font-size:14px; letter-spacing:.05em; color:var(--text); display:flex; align-items:center; gap:8px;}
+  .nav-brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); }
+  .nav-links{ display:flex; gap:32px; font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:.05em; }
+  .nav-links a{ text-decoration:none; color:var(--text-muted); transition:color .2s; }
+  .nav-links a:hover{ color:var(--amber); }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.05em;
+    border:1px solid var(--amber); color:var(--amber); padding:8px 16px; text-decoration:none;
+    transition: all .2s;
+  }
+  .nav-cta:hover{ background:var(--amber); color:#0E1826; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:170px; padding-bottom:80px; border-bottom:1px solid var(--line);
+    min-height: 92vh;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .hero-tag{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:.16em;
+    color:var(--text-dim); text-transform:uppercase; margin-bottom:22px;
+    display:flex; gap:10px; align-items:center;
+  }
+  .hero-tag .blip{ width:6px; height:6px; background:var(--amber); animation:pulse 1.8s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+  .hero h1{
+    font-size:clamp(42px, 6.2vw, 84px);
+    line-height:1.02;
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{ color:var(--cyan); }
+  .hero p.lede{
+    max-width:600px; font-size:19px; color:var(--text-muted); margin-bottom:38px;
+  }
+  .hero p.lede b{ color:var(--text); font-weight:600; }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:70px;}
+  .btn-primary{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.04em;
+    background:var(--amber); color:#0E1826; padding:14px 26px; text-decoration:none;
+    font-weight:500; transition:transform .15s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.04em;
+    border:1px solid var(--line); color:var(--text-muted); padding:14px 26px; text-decoration:none;
+    transition: all .15s ease;
+  }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+  /* ---------- Architecture diagram (signature element) ---------- */
+  .diagram-wrap{
+    border:1px solid var(--line);
+    background:var(--bg-panel);
+    padding:28px 28px 20px;
+    position:relative;
+  }
+  .diagram-wrap .caption{
+    display:flex; justify-content:space-between; margin-top:16px;
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-dim); letter-spacing:.04em;
+  }
+  .diagram-wrap .caption span:last-child{ color:var(--cyan); }
+
+  .node{ fill:var(--bg-panel-alt); stroke:var(--line); stroke-width:1; }
+  .node-label{ fill:var(--text); font-family:'JetBrains Mono', monospace; font-size:11px; }
+  .node-sub{ fill:var(--text-dim); font-family:'JetBrains Mono', monospace; font-size:9px; }
+  .flow-line{ stroke:var(--line); stroke-width:1.2; fill:none; }
+  .flow-pulse{
+    stroke:var(--cyan); stroke-width:1.6; fill:none;
+    stroke-dasharray: 6 220;
+    animation: flow 3.2s linear infinite;
+  }
+  .flow-pulse.amber{ stroke:var(--amber); animation-duration:2.4s; }
+  @keyframes flow{ to{ stroke-dashoffset:-226; } }
+  .metric-tag{ fill:var(--amber); font-family:'JetBrains Mono', monospace; font-size:10px; font-weight:600; }
+
+  @media (prefers-reduced-motion: reduce){
+    .flow-pulse, .hero-tag .blip { animation: none !important; }
+  }
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip{
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+  }
+  .stat{
+    padding:0 20px; border-left:1px solid var(--line);
+    text-align:left;
+  }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{ font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,2.6vw,32px); color:var(--text); font-weight:700; }
+  .stat .num span{ color:var(--cyan); }
+  .stat .lbl{ font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; margin-top:6px; }
+  @media (max-width:900px){ .stats-grid{ grid-template-columns:repeat(2,1fr); row-gap:28px; } .stat{ border-left:none; padding-left:0;} }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service{
+    background:var(--bg);
+    padding:32px 26px;
+    transition:background .2s;
+  }
+  .service:hover{ background:var(--bg-panel); }
+  .service .idx{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--amber); margin-bottom:18px; display:block; }
+  .service h3{ font-size:18px; margin-bottom:10px; }
+  .service p{ font-size:14px; color:var(--text-muted); }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Experience: version history ---------- */
+  .rev-list{ display:flex; flex-direction:column; }
+  .rev{
+    display:grid; grid-template-columns:160px 1fr; gap:36px;
+    padding:36px 0; border-top:1px solid var(--line);
+  }
+  .rev:last-child{ border-bottom:1px solid var(--line); }
+  .rev-version{ font-family:'JetBrains Mono', monospace; }
+  .rev-version .tag{
+    display:inline-block; font-size:13px; color:var(--cyan); border:1px solid var(--cyan-dim, var(--line));
+    padding:4px 10px; margin-bottom:10px;
+  }
+  .rev-version .dates{ font-size:12px; color:var(--text-dim); }
+  .rev-current .rev-version .tag{ background:var(--amber); color:#0E1826; border-color:var(--amber); font-weight:600;}
+  .rev-body h3{ font-size:22px; margin-bottom:4px; }
+  .rev-body .org{ font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-muted); margin-bottom:18px; }
+  .rev-body ul{ list-style:none; display:flex; flex-direction:column; gap:11px; }
+  .rev-body li{ font-size:14.5px; color:var(--text-muted); padding-left:20px; position:relative; }
+  .rev-body li::before{ content:"—"; position:absolute; left:0; color:var(--text-dim); }
+  .rev-body li b{ color:var(--text); font-weight:600; }
+  .rev-stack{ margin-top:20px; font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--text-dim); }
+  @media (max-width:700px){ .rev{ grid-template-columns:1fr; gap:14px; } }
+
+  /* AI/LLM callout inside rev */
+  .ai-panel{
+    margin-top:22px; border:1px dashed var(--amber); background:var(--amber-dim);
+    padding:20px 22px;
+  }
+  .ai-panel .ai-head{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--amber); text-transform:uppercase; margin-bottom:12px; }
+  .ai-panel ul{ gap:8px; }
+  .ai-panel li::before{ content:"▸"; color:var(--amber); }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .skill-block{ border-top:1px solid var(--line); padding-top:18px; }
+  .skill-block h4{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--cyan); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--text-muted);
+    border:1px solid var(--line); padding:6px 11px; transition: all .15s;
+  }
+  .chip:hover{ border-color:var(--amber); color:var(--text); }
+  @media (max-width:800px){ .skills-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .skills-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Achievements ---------- */
+  .ach-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .ach{
+    border:1px solid var(--line); padding:22px 24px; display:flex; gap:16px; align-items:flex-start;
+  }
+  .ach .mark{ font-family:'JetBrains Mono', monospace; color:var(--amber); font-size:13px; margin-top:2px; }
+  .ach p{ font-size:14.5px; color:var(--text-muted); }
+  .ach p b{ color:var(--text); }
+  @media (max-width:700px){ .ach-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Education ---------- */
+  .edu-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; padding:18px 0; border-top:1px solid var(--line); }
+  .edu-row:last-child{ border-bottom:1px solid var(--line); }
+  .edu-row .left b{ font-size:16px; display:block; margin-bottom:4px; }
+  .edu-row .left span{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--text-muted); }
+  .edu-row .right{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--text-dim); text-align:right; }
+
+  /* ---------- Contact / footer ---------- */
+  .contact-panel{
+    border:1px solid var(--line); background:var(--bg-panel);
+    padding:60px 50px; text-align:center; position:relative;
+  }
+  .contact-panel h2{ font-size:clamp(28px,4vw,44px); margin-bottom:16px; }
+  .contact-panel p{ color:var(--text-muted); max-width:520px; margin:0 auto 32px; }
+  .contact-links{ display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:36px; }
+  .avail-strip{
+    display:flex; justify-content:center; gap:34px; flex-wrap:wrap;
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-dim);
+    border-top:1px solid var(--line); padding-top:26px;
+  }
+  .avail-strip b{ color:var(--cyan); font-weight:500; }
+  footer{ text-align:center; padding:30px 0; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--text-dim); }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:600px){
+    .sheet{ padding:0 20px; }
+    .nav{ padding:0 20px; }
+    .contact-panel{ padding:40px 22px; }
+  }
+</style>
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h1 class="text-xl font-black text-gray-900">MAHESH SHARMA</h1>
-                    <p class="text-xs text-gray-500 font-medium">Engineering Leader • Unity3D Expert • AWS Architect</p>
-                </div>
-                <div class="hidden md:flex gap-8 items-center">
-                    <a href="#hiring" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">For Recruiters</a>
-                    <a href="#consulting" class="text-sm font-semibold text-purple-600 hover:text-purple-800">For Clients</a>
-                    <a href="#contact" class="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-gray-800">Contact</a>
-                </div>
-            </div>
-        </div>
+<header>
+  <div class="nav">
+    <div class="nav-brand"><span class="dot"></span>M. SHARMA / ENG</div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <a href="mailto:maheshsharma184@gmail.com" class="nav-cta">Hire →</a>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-block mb-6 px-4 py-2 bg-indigo-100 rounded-full">
-                <p class="text-sm font-bold text-indigo-700">Available for Full-Time Roles & Strategic Consulting</p>
-            </div>
-            <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
-                Building Scalable Systems.<br/>
-                <span class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Leading High-Impact Teams.</span>
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                10+ years scaling EdTech, Gaming & VR/AR platforms. Expert in Unity3D, MERN Stack, and AWS Cloud Architecture. Proven track record: 5X platform growth, ₹25L+ cost savings, 99.9% uptime.
-            </p>
-            
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <p class="text-3xl font-black text-indigo-600">5X</p>
-                    <p class="text-xs text-gray-500 font-semibold mt-1">Platform Growth</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <p class="text-3xl font-black text-indigo-600">₹25L+</p>
-                    <p class="text-xs text-gray-500 font-semibold mt-1">Cost Saved/Year</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <p class="text-3xl font-black text-indigo-600">30+</p>
-                    <p class="text-xs text-gray-500 font-semibold mt-1">Team Members Led</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <p class="text-3xl font-black text-indigo-600">100K+</p>
-                    <p class="text-xs text-gray-500 font-semibold mt-1">Global Users</p>
-                </div>
-            </div>
+<main class="sheet">
+
+  <!-- HERO -->
+  <section class="hero" id="top" style="border:none;">
+    <div class="hero-tag"><span class="blip"></span>AVAILABLE · IMMEDIATE TO 10 DAYS NOTICE</div>
+    <h1>I architect platforms<br>that carry <span class="accent">35 lakh+ users</span><br>— and the teams that build them.</h1>
+    <p class="lede">Mahesh Sharma — <b>Engineering Manager &amp; Technical Lead</b> based in Mumbai. 10+ years across Unity3D game engineering, MERN full-stack, AWS infrastructure, and applied AI/LLM systems, for EdTech and gaming products at real scale.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a project</a>
+      <a href="#experience" class="btn-ghost">See the build history ↓</a>
+    </div>
+
+    <div class="diagram-wrap corner-marks reveal">
+      <svg viewBox="0 0 1000 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System architecture diagram of the STEPapp platform">
+        <!-- connectors -->
+        <path class="flow-line" d="M120,130 L280,130"/>
+        <path class="flow-pulse" d="M120,130 L280,130"/>
+        <path class="flow-line" d="M400,130 L560,60 L560,60"/>
+        <path class="flow-pulse amber" d="M400,130 L560,60"/>
+        <path class="flow-line" d="M400,130 L560,130"/>
+        <path class="flow-pulse" d="M400,130 L560,130"/>
+        <path class="flow-line" d="M400,130 L560,200"/>
+        <path class="flow-pulse amber" d="M400,130 L560,200"/>
+        <path class="flow-line" d="M680,60 L830,110"/>
+        <path class="flow-pulse" d="M680,60 L830,110"/>
+        <path class="flow-line" d="M680,130 L830,130"/>
+        <path class="flow-pulse amber" d="M680,130 L830,130"/>
+        <path class="flow-line" d="M680,200 L830,150"/>
+        <path class="flow-pulse" d="M680,200 L830,150"/>
+
+        <!-- nodes -->
+        <rect class="node" x="20" y="105" width="100" height="50" rx="2"/>
+        <text class="node-label" x="70" y="127" text-anchor="middle">35L+ USERS</text>
+        <text class="node-sub" x="70" y="141" text-anchor="middle">1L+ concurrent</text>
+
+        <rect class="node" x="280" y="105" width="120" height="50" rx="2"/>
+        <text class="node-label" x="340" y="127" text-anchor="middle">AWS GATEWAY</text>
+        <text class="node-sub" x="340" y="141" text-anchor="middle">10,000+ req/sec</text>
+
+        <rect class="node" x="560" y="35" width="120" height="50" rx="2"/>
+        <text class="node-label" x="620" y="57" text-anchor="middle">UNITY3D / AR-VR</text>
+        <text class="node-sub" x="620" y="71" text-anchor="middle">20+ modules</text>
+
+        <rect class="node" x="560" y="105" width="120" height="50" rx="2"/>
+        <text class="node-label" x="620" y="127" text-anchor="middle">MERN SERVICES</text>
+        <text class="node-sub" x="620" y="141" text-anchor="middle">99.9% uptime</text>
+
+        <rect class="node" x="560" y="175" width="120" height="50" rx="2"/>
+        <text class="node-label" x="620" y="197" text-anchor="middle">GEMINI / RAG</text>
+        <text class="node-sub" x="620" y="211" text-anchor="middle">AI chatbot + cheat detect</text>
+
+        <rect class="node" x="830" y="85" width="150" height="50" rx="2"/>
+        <text class="node-label" x="905" y="107" text-anchor="middle">MOBILE APPS</text>
+        <text class="node-sub" x="905" y="121" text-anchor="middle">3M+ downloads · 4.5★</text>
+
+        <rect class="node" x="830" y="145" width="150" height="1" opacity="0"/>
+        <text class="metric-tag" x="905" y="235" text-anchor="middle">₹25L+ / YEAR SAVED</text>
+      </svg>
+      <div class="caption">
+        <span>FIG. 01 — STEPapp platform, simplified</span>
+        <span>REV 3.0 · LIVE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-strip" style="padding-top:70px;">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">35L<span>+</span></div><div class="lbl">Platform users</div></div>
+      <div class="stat"><div class="num">30<span>+</span></div><div class="lbl">Engineers led</div></div>
+      <div class="stat"><div class="num">99.9<span>%</span></div><div class="lbl">Uptime</div></div>
+      <div class="stat"><div class="num">₹25L<span>+</span></div><div class="lbl">Cloud cost saved / yr</div></div>
+      <div class="stat"><div class="num">10K<span>+</span></div><div class="lbl">Requests / sec</div></div>
+      <div class="stat"><div class="num">3M<span>+</span></div><div class="lbl">App downloads</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="sheet-label">Sheet 00 <span class="rev">What I take on</span></div>
+    <h2 style="font-size:clamp(24px,3vw,34px); margin-bottom:40px;">Where I'm most useful</h2>
+    <div class="services-grid reveal">
+      <div class="service">
+        <span class="idx mono">EM</span>
+        <h3>Engineering leadership</h3>
+        <p>Standing up and running teams from 5 to 30+ engineers — hiring, mentorship, Agile/Scrum delivery, and shipping cadence.</p>
+      </div>
+      <div class="service">
+        <span class="idx mono">3D</span>
+        <h3>Unity3D &amp; AR/VR</h3>
+        <p>Multiplayer, Photon, ARKit/ARCore builds for education and gaming — from Oculus and Vive to mobile AR.</p>
+      </div>
+      <div class="service">
+        <span class="idx mono">FS</span>
+        <h3>Full-stack &amp; cloud</h3>
+        <p>MERN, Next.js, and serverless AWS architecture built to hold real concurrent load, with cost optimization built in.</p>
+      </div>
+      <div class="service">
+        <span class="idx mono">AI</span>
+        <h3>Applied AI/LLM</h3>
+        <p>RAG-based chatbots, Gemini integration, and ML-based detection systems, shipped into production, not prototypes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sheet-label">Sheet 01 <span class="rev">Build history</span></div>
+    <h2 style="font-size:clamp(24px,3vw,34px); margin-bottom:10px;">Career, versioned</h2>
+    <p style="color:var(--text-muted); max-width:560px; margin-bottom:20px;">Each role shipped with wider scope than the last — read like release notes.</p>
+
+    <div class="rev-list">
+
+      <div class="rev rev-current reveal">
+        <div class="rev-version">
+          <span class="tag">REV 3.0</span>
+          <div class="dates">Sep 2018 — Present</div>
         </div>
-    </section>
+        <div class="rev-body">
+          <h3>Engineering Manager / Head of Engineering</h3>
+          <div class="org">STEPapp · Mumbai</div>
+          <ul>
+            <li>Led end-to-end engineering for an EdTech &amp; gaming platform serving <b>35 lakh+ registered users</b>, with up to <b>1 lakh+ concurrent</b> during live sessions.</li>
+            <li>Built and managed a <b>30+ member team</b> across backend, frontend, mobile, and Unity3D.</li>
+            <li>Architected a <b>MERN + AWS serverless platform</b> handling <b>10,000+ requests/sec</b> at <b>99.9% uptime</b>.</li>
+            <li>Scaled the platform <b>5x (7L → 35L users)</b> without giving up performance, security, or reliability.</li>
+            <li>Cut <b>AWS infrastructure cost by ₹25L+ annually (40%)</b> through serverless migration and re-architecture.</li>
+            <li>Shipped <b>20+ Unity3D AR/VR modules</b>, lifting engagement <b>40%</b> and course completion <b>30%</b>.</li>
+            <li>Launched React Native &amp; Unity mobile apps: <b>3M+ downloads</b>, <b>4.5★</b> average rating.</li>
+            <li>Rebuilt CI/CD, cutting deploy time from <b>3 hours to 15 minutes</b>.</li>
+          </ul>
 
-    <!-- FOR RECRUITERS SECTION -->
-    <section id="hiring" class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-block px-4 py-1.5 bg-indigo-100 rounded-full mb-4">
-                    <p class="text-xs font-black text-indigo-700 uppercase tracking-wide">For Hiring Managers</p>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Why Companies Hire Me</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">I'm a hands-on engineering leader who scales platforms, builds high-performing teams, and delivers measurable business impact.</p>
-            </div>
+          <div class="ai-panel">
+            <div class="ai-head">AI / ML / LLM initiatives</div>
+            <ul>
+              <li>Designed an <b>ML-based cheat detection system</b> for online assessments.</li>
+              <li>Built a <b>RAG-powered AI chatbot</b> for student support and assessment queries.</li>
+              <li>Integrated <b>Google Gemini</b> as the backend LLM with secure prompt handling and contextual retrieval.</li>
+              <li>Set up analytics-driven monitoring for suspicious behavior from event and ML data.</li>
+            </ul>
+          </div>
 
-            <!-- Value Propositions -->
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Scale Systems 5X</h3>
-                    <p class="text-gray-600 mb-4">Grew STEPapp from 10K to 50K users while maintaining 99.9% uptime. Architected systems handling 10K+ requests/min with AWS Lambda and microservices.</p>
-                    <p class="text-sm text-indigo-600 font-semibold">Tech: MERN, Next.js, AWS, Docker, K8s</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Build Elite Teams</h3>
-                    <p class="text-gray-600 mb-4">Scaled engineering teams from 5 to 30+ members. Established hiring pipelines, mentorship programs, and engineering culture that reduced turnover by 60%.</p>
-                    <p class="text-sm text-purple-600 font-semibold">Leadership: Agile, OKRs, 1:1s, Career Growth</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Cut Costs 40%</h3>
-                    <p class="text-gray-600 mb-4">Saved ₹25L+ annually through serverless architecture optimization, database query optimization, and intelligent caching strategies without compromising performance.</p>
-                    <p class="text-sm text-blue-600 font-semibold">Savings: AWS Lambda, CDN, Redis, Query Tuning</p>
-                </div>
-            </div>
-
-            <!-- Key Achievements -->
-            <div class="bg-gray-900 text-white p-10 rounded-3xl mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-center">Career Highlights</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-indigo-400 rounded-full mt-2 shrink-0"></div>
-                        <div>
-                            <p class="font-bold text-lg mb-1">Engineering Manager @ STEPapp (2022-Present)</p>
-                            <p class="text-gray-400 text-sm">Led CTO-level responsibilities: architecture, 30+ team members, 50K+ users across 5 countries</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 shrink-0"></div>
-                        <div>
-                            <p class="font-bold text-lg mb-1">Director of Engineering @ STEPapp (2020-2022)</p>
-                            <p class="text-gray-400 text-sm">Scaled team 5→15+, delivered 5+ production platforms, reduced API response time 65%</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 shrink-0"></div>
-                        <div>
-                            <p class="font-bold text-lg mb-1">Senior Unity Developer @ Quytech (2017-2018)</p>
-                            <p class="text-gray-400 text-sm">Built VR training for Fortune 500 clients, Teen Patti game with ₹15L+ monthly revenue</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
-                        <div>
-                            <p class="font-bold text-lg mb-1">Senior Unity Dev (AR/VR) @ Veative Labs (2015-2017)</p>
-                            <p class="text-gray-400 text-sm">Created 15+ VR educational modules serving 100K+ students across 200+ institutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA for Recruiters -->
-            <div class="gradient-blue p-12 rounded-3xl text-white text-center">
-                <h3 class="text-3xl font-black mb-4">Ready to Hire an Engineering Leader?</h3>
-                <p class="text-lg mb-8 text-blue-100">I'm open to Engineering Manager, Technical Lead, and CTO roles. Notice period: Immediate to 10 days.</p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="Mahesh_Sharma_CV.pdf" download class="bg-white text-indigo-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition inline-flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        Download Full CV
-                    </a>
-                    <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-indigo-600 transition">Schedule Interview</a>
-                </div>
-            </div>
+          <div class="rev-stack">STACK — React.js · Next.js · Node.js · MongoDB · Redis · AWS Lambda · DynamoDB · Unity3D · React Native · Docker · Kubernetes · Google Gemini</div>
         </div>
-    </section>
+      </div>
 
-    <!-- FOR CONSULTING CLIENTS SECTION -->
-    <section id="consulting" class="py-24 px-6 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-block px-4 py-1.5 bg-purple-100 rounded-full mb-4">
-                    <p class="text-xs font-black text-purple-700 uppercase tracking-wide">For Startup Founders & CTOs</p>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Strategic Technology Consulting</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Fractional CTO services, Unity3D development, and cloud architecture consulting to launch your product faster and scale efficiently.</p>
-            </div>
-
-            <!-- Consulting Services -->
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-purple-600">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-xl font-black text-gray-900 mb-3">Fractional CTO</h3>
-                    <p class="text-gray-600 mb-6">Strategic technical leadership without full-time commitment. I help you build the right product roadmap, architecture, and team to reach PMF faster.</p>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-purple-600 font-bold">✓</span>
-                            <span>MVP Architecture & Tech Stack Selection</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-purple-600 font-bold">✓</span>
-                            <span>Engineering Team Hiring & Onboarding</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-purple-600 font-bold">✓</span>
-                            <span>Product Roadmap & Sprint Planning</span>
-                        </li>
-                    </ul>
-                    <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-gray-500 font-semibold">PAST CLIENT:</p>
-                        <p class="text-sm font-bold text-purple-600">BoredLeaders - 25K+ downloads, 2-month faster launch</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-indigo-600">
-                    <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-xl font-black text-gray-900 mb-3">Unity3D & VR/AR Development</h3>
-                    <p class="text-gray-600 mb-6">Build immersive gaming, training, or educational experiences. From multiplayer games to enterprise VR training simulations.</p>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-600 font-bold">✓</span>
-                            <span>Multiplayer Game Architecture (Photon/Mirror)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-600 font-bold">✓</span>
-                            <span>VR Training for Industrial & Enterprise</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-600 font-bold">✓</span>
-                            <span>Mobile Game Monetization (IAP, Ads)</span>
-                        </li>
-                    </ul>
-                    <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-gray-500 font-semibold">PROVEN RESULTS:</p>
-                        <p class="text-sm font-bold text-indigo-600">Teen Patti: ₹15L+ monthly revenue, 50K+ users</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-blue-600">
-                    <div class="text-4xl mb-4">☁️</div>
-                    <h3 class="text-xl font-black text-gray-900 mb-3">AWS Cloud & Full-Stack Scaling</h3>
-                    <p class="text-gray-600 mb-6">Modernize legacy systems, optimize cloud costs, and scale to millions of users with serverless architecture and microservices.</p>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 font-bold">✓</span>
-                            <span>MERN/Next.js Full-Stack Development</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 font-bold">✓</span>
-                            <span>AWS Cost Optimization & Serverless Migration</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 font-bold">✓</span>
-                            <span>CI/CD Pipeline Setup & DevOps Automation</span>
-                        </li>
-                    </ul>
-                    <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-gray-500 font-semibold">REAL IMPACT:</p>
-                        <p class="text-sm font-bold text-blue-600">Saved ₹25L+/year with serverless optimization</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case Studies Preview -->
-            <div class="bg-white p-10 rounded-3xl shadow-lg mb-12">
-                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Recent Consulting Projects</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="border-l-4 border-purple-600 pl-6">
-                        <p class="text-xs font-black text-purple-600 uppercase mb-2">Fractional CTO • Kids Metaverse</p>
-                        <h4 class="text-lg font-bold text-gray-900 mb-2">KITMEK Technologies</h4>
-                        <p class="text-sm text-gray-600 mb-3">Advised on COPPA-compliant Unity3D architecture. Delivered multiplayer features enabling 2-month faster market launch.</p>
-                        <p class="text-xs text-gray-500 font-semibold">Oct 2021 - Feb 2022</p>
-                    </div>
-                    <div class="border-l-4 border-indigo-600 pl-6">
-                        <p class="text-xs font-black text-indigo-600 uppercase mb-2">Unity3D Development • Gaming</p>
-                        <h4 class="text-lg font-bold text-gray-900 mb-2">BoredLeaders Multiplayer Game</h4>
-                        <p class="text-sm text-gray-600 mb-3">Architected Firebase backend with real-time matchmaking. Implemented Google IAP and ads mediation generating consistent revenue.</p>
-                        <p class="text-xs text-gray-500 font-semibold">Jan 2022 - Apr 2023</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA for Clients -->
-            <div class="gradient-purple p-12 rounded-3xl text-white text-center">
-                <h3 class="text-3xl font-black mb-4">Let's Build Something Amazing</h3>
-                <p class="text-lg mb-8 text-purple-100">Book a free 30-minute discovery call to discuss your project. No obligations, just strategic insights.</p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="#contact" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition">Book Discovery Call</a>
-                    <a href="mailto:maheshsharma184@gmail.com" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-purple-600 transition">Email Directly</a>
-                </div>
-            </div>
+      <div class="rev reveal">
+        <div class="rev-version">
+          <span class="tag">REV 2.0</span>
+          <div class="dates">Sep 2017 — Sep 2018</div>
         </div>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-black text-center text-gray-900 mb-12">Technology Expertise</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <p class="text-xs font-black text-indigo-600 uppercase mb-3">Game Development</p>
-                    <p class="text-sm text-gray-700">Unity3D • C# • VR/AR • Photon • Multiplayer • Mobile Optimization</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <p class="text-xs font-black text-purple-600 uppercase mb-3">Full Stack</p>
-                    <p class="text-sm text-gray-700">React • Next.js • Node.js • TypeScript • GraphQL • REST APIs</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <p class="text-xs font-black text-blue-600 uppercase mb-3">Cloud & DevOps</p>
-                    <p class="text-sm text-gray-700">AWS Lambda • ECS • DynamoDB • Docker • Kubernetes • CI/CD</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <p class="text-xs font-black text-cyan-600 uppercase mb-3">Mobile</p>
-                    <p class="text-sm text-gray-700">React Native • Android (Kotlin) • iOS (Swift) • Cross-platform</p>
-                </div>
-            </div>
+        <div class="rev-body">
+          <h3>Senior Unity Developer</h3>
+          <div class="org">Quytech · Gurugram</div>
+          <ul>
+            <li>Built VR training applications for Fortune 500 clients, improving training efficiency by <b>50%</b>.</li>
+            <li>Shipped a multiplayer Teen Patti game to <b>1 lakh+ users</b>, generating <b>₹15L+ monthly revenue</b> at <b>4.7★</b>.</li>
+            <li>Designed a Firebase backend supporting <b>1,000+ concurrent</b> game sessions.</li>
+            <li>Implemented in-app purchases, ads mediation, and real-time multiplayer.</li>
+          </ul>
+          <div class="rev-stack">STACK — Unity3D · C# · Firebase · Photon · Oculus SDK · Google IAP · AdMob</div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-black mb-6">Let's Connect</h2>
-            <p class="text-lg text-gray-300 mb-12">Whether you're hiring for a leadership role or need strategic consulting, I'd love to hear from you.</p>
-            
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <a href="mailto:maheshsharma184@gmail.com" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition">
-                    <svg class="w-8 h-8 text-indigo-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    <p class="text-xs text-gray-400 uppercase font-bold mb-2">Email</p>
-                    <p class="font-semibold text-sm">maheshsharma184@gmail.com</p>
-                </a>
-                <a href="tel:+917838053261" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition">
-                    <svg class="w-8 h-8 text-purple-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    <p class="text-xs text-gray-400 uppercase font-bold mb-2">Phone</p>
-                    <p class="font-semibold text-sm">+91 7838053261</p>
-                </a>
-                <a href="https://www.linkedin.com/in/mahesh-sharma-570901162/" target="_blank" class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition">
-                    <svg class="w-8 h-8 text-blue-400 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <p class="text-xs text-gray-400 uppercase font-bold mb-2">LinkedIn</p>
-                    <p class="font-semibold text-sm">maheshsharma</p>
-                </a>
-            </div>
+      <div class="rev reveal">
+        <div class="rev-version">
+          <span class="tag">REV 1.0</span>
+          <div class="dates">Jul 2015 — Sep 2017</div>
+        </div>
+        <div class="rev-body">
+          <h3>Senior Unity Developer (AR/VR)</h3>
+          <div class="org">Veative Labs · Noida</div>
+          <ul>
+            <li>Created <b>15+ VR educational modules</b> used by <b>5 lakh+ students</b> across <b>200+ institutions</b>.</li>
+            <li>Improved learning retention by <b>45%</b> and conceptual understanding by <b>50%</b>.</li>
+            <li>Optimized VR apps for Oculus Rift, HTC Vive, Gear VR, and Google Cardboard.</li>
+            <li>Worked directly with curriculum, design, and product teams on immersive learning.</li>
+          </ul>
+          <div class="rev-stack">STACK — Unity3D · C# · Oculus SDK · HTC Vive SDK · ARKit · ARCore · Firebase</div>
+        </div>
+      </div>
 
-            <div class="flex flex-wrap justify-center gap-3 text-xs">
-                <span class="bg-indigo-600 px-4 py-2 rounded-full font-bold">Available Immediately</span>
-                <span class="bg-purple-600 px-4 py-2 rounded-full font-bold">Open to Relocation
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sheet-label">Sheet 02 <span class="rev">Toolset</span></div>
+    <h2 style="font-size:clamp(24px,3vw,34px); margin-bottom:40px;">Core skills</h2>
+    <div class="skills-grid reveal">
+      <div class="skill-block">
+        <h4>Leadership &amp; management</h4>
+        <div class="chip-row">
+          <span class="chip">Engineering Manager</span><span class="chip">Technical Lead</span>
+          <span class="chip">Hiring</span><span class="chip">Mentorship</span>
+          <span class="chip">Agile</span><span class="chip">Scrum</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Game dev &amp; immersive</h4>
+        <div class="chip-row">
+          <span class="chip">Unity3D</span><span class="chip">C#</span>
+          <span class="chip">Multiplayer</span><span class="chip">AR/VR</span>
+          <span class="chip">Photon</span><span class="chip">ARKit</span><span class="chip">ARCore</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Full stack</h4>
+        <div class="chip-row">
+          <span class="chip">MERN</span><span class="chip">React</span>
+          <span class="chip">Next.js</span><span class="chip">Node.js</span>
+          <span class="chip">TypeScript</span><span class="chip">REST</span><span class="chip">GraphQL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Cloud &amp; DevOps</h4>
+        <div class="chip-row">
+          <span class="chip">AWS</span><span class="chip">Firebase</span>
+          <span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Databases</h4>
+        <div class="chip-row">
+          <span class="chip">MongoDB</span><span class="chip">PostgreSQL</span>
+          <span class="chip">Redis</span><span class="chip">Elasticsearch</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>AI / ML / LLM</h4>
+        <div class="chip-row">
+          <span class="chip">RAG</span><span class="chip">AI Chatbots</span>
+          <span class="chip">Gemini</span><span class="chip">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <div class="sheet-label">Sheet 03 <span class="rev">Key achievements</span></div>
+    <h2 style="font-size:clamp(24px,3vw,34px); margin-bottom:40px;">On record</h2>
+    <div class="ach-grid reveal">
+      <div class="ach"><span class="mark">✓</span><p>Scaled an EdTech platform to <b>35 lakh+ users</b> at <b>99.9% uptime</b>.</p></div>
+      <div class="ach"><span class="mark">✓</span><p>Saved <b>₹25L+ annually</b> through cloud cost optimization.</p></div>
+      <div class="ach"><span class="mark">✓</span><p>Shipped a gaming product generating <b>₹15L+ monthly revenue</b>.</p></div>
+      <div class="ach"><span class="mark">✓</span><p>Built and led engineering teams from <b>5 to 30+ members</b>.</p></div>
+      <div class="ach"><span class="mark">✓</span><p>Delivered an AI-powered cheat detection system and LLM chatbot for assessment platforms.</p></div>
+      <div class="ach"><span class="mark">✓</span><p>Cut deployment time from <b>3 hours to 15 minutes</b> via CI/CD.</p></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="sheet-label">Sheet 04 <span class="rev">Education &amp; certifications</span></div>
+    <div class="edu-row reveal">
+      <div class="left"><b>B.Tech, Computer Science</b><span>Rajkiya Engineering College, Banda · 2011–2015 · 7.9/10 CGPA</span></div>
+      <div class="right">DEGREE</div>
+    </div>
+    <div class="edu-row reveal">
+      <div class="left"><b>C Programming — Infosys</b><span>Certification</span></div>
+      <div class="right">CERT</div>
+    </div>
+    <div class="edu-row reveal">
+      <div class="left"><b>Java — NIIT</b><span>Certification</span></div>
+      <div class="right">CERT</div>
+    </div>
+    <div class="edu-row reveal">
+      <div class="left"><b>AWS Solutions Architect</b><span>In progress</span></div>
+      <div class="right">IN PROGRESS</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="contact-panel corner-marks reveal">
+      <h2>Let's build the next revision.</h2>
+      <p>Open to full-time Engineering Manager / Technical Lead roles, and freelance or contract work in Unity3D, full-stack, cloud, or applied AI.</p>
+      <div class="contact-links">
+        <a href="mailto:maheshsharma184@gmail.com" class="btn-primary">maheshsharma184@gmail.com</a>
+        <a href="tel:+917838053261" class="btn-ghost">+91 78380 53261</a>
+      </div>
+      <div class="avail-strip">
+        <span>NOTICE — <b>Immediate to 10 days</b></span>
+        <span>BASE — <b>Mumbai</b></span>
+        <span>RELOCATE — <b>Bangalore · Pune · Delhi-NCR · Hyderabad</b></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>MAHESH SHARMA — ENGINEERING MANAGER / TECHNICAL LEAD · BUILT FROM REV 3.0</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
